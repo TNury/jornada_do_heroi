@@ -23,7 +23,7 @@ const SearchBar = () => {
   return (
     <TextField
       id='outlined-basic'
-      placeholder='Search'
+      placeholder='Search by name or race'
       variant='outlined'
       onChange={handleOnChange}
     />

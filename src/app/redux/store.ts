@@ -3,11 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
+import combatSlice from '@/redux/slices/combatSlice';
 import searchSlice from '@/redux/slices/searchSlice';
 
 export const store = configureStore({
   reducer: {
     search: searchSlice,
+    combat: combatSlice,
   },
 });
 

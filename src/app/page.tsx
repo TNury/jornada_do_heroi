@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import callAPI from '@/services/api';
 
 import Header from '@/components/Header';
-import { MainScreen } from '@/components/MainScreen';
+import { HeroList } from '@/components/HeroList';
 
 import { SuperHero } from '@/types/types';
 
@@ -20,7 +20,7 @@ const Home = async () => {
       <Container>
         <Header />
 
-        <MainScreen heroList={response} />
+        <HeroList heroList={response} />
       </Container>
     </main>
   );

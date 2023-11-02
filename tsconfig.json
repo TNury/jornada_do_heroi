@@ -20,15 +20,23 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@/redux/*": ["src/app/redux/*"],
       "@/components/*": ["src/app/components/*"],
       "@/lib/*": ["src/app/lib/*"],
       "@/services/*": ["src/services/*"],
       "@/types/*": ["src/app/types/*"],
       "@/hooks/*": ["src/app/hooks/*"],
       "@/icons/*": ["src/app/components/ui/generic/icons/*"],
-      "@/assets/*": ["src/assets/*"]
+      "@/assets/*": ["src/assets/*"],
+      "@/styles/*": ["src/app/styles/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "prettier.config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "prettier.config.js"
+  ],
   "exclude": ["node_modules"]
 }

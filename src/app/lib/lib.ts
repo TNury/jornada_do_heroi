@@ -11,3 +11,7 @@ export function returnSummedStats(hero: SuperHero): number {
 
   return summedStats;
 }
+
+export function returnTitleCase(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}

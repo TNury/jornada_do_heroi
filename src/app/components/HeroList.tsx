@@ -18,9 +18,9 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   const getFilteredHeroList = (): SuperHero[] => {
     const trimmedSearchValue = searchValue.trim().toLowerCase();
 
-    if (!trimmedSearchValue) return heroList.slice(0, 10);
+    if (!trimmedSearchValue) return heroList;
 
-    return heroList.slice(0, 10).filter(({ name, appearance: { race } }) => {
+    return heroList.filter(({ name, appearance: { race } }) => {
       const lowerCaseName = name.toLowerCase();
       const lowerCaseRace = race?.toLowerCase() ?? '';
 

@@ -2,6 +2,7 @@ import Container from '@mui/material/Container';
 
 import callAPI from '@/services/api';
 
+import CombatModal from '@/components/CombatModal';
 import Header from '@/components/Header';
 import { HeroList } from '@/components/HeroList';
 
@@ -21,6 +22,8 @@ const Home = async () => {
         <Header />
 
         <HeroList heroList={response} />
+
+        <CombatModal />
       </Container>
     </main>
   );

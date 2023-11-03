@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import { returnSummedStats } from '@/lib/lib';
@@ -20,9 +19,6 @@ type HeroCardProps = {
 
 export const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
   const highLight = useAppSelector((state) => {
-    if (hero.id === 1) {
-      console.log(state.combat.value);
-    }
     return state.combat.value.includes(hero);
   });
 

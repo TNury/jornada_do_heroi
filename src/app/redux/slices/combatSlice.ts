@@ -29,9 +29,12 @@ export const combatSlice = createSlice({
 
       state.value.push(action.payload);
     },
+    clearCombatants: (state) => {
+      state.value = [];
+    },
   },
 });
 
-export const { addCombatant } = combatSlice.actions;
+export const { addCombatant, clearCombatants } = combatSlice.actions;
 
 export default combatSlice.reducer;

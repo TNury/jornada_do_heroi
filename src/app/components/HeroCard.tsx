@@ -31,7 +31,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
   return (
     <Card
       data-highlight={highLight}
-      className='bg-slate-700 data-[highlight="true"]:bg-red-500'
+      className='bg-slate-700 data-[highlight="true"]:bg-red-500 w-full h-full'
       onClick={handleOnClick}
       role='button'>
       <div className='relative h-64 w-full'>

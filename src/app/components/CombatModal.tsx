@@ -5,8 +5,10 @@ import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import Modal from '@mui/material/Modal';
 
-import { CombatCard } from '@/components/CombatCard';
 import { CombatStats } from '@/components/CombatStats';
+import { HeroCard } from '@/components/HeroCard';
+
+// @TODO - Make this mobile friendly
 
 const CombatModal = () => {
   const combatValue = useAppSelector((state) => state.combat.value);
@@ -21,10 +23,12 @@ const CombatModal = () => {
 
   return (
     <Modal open onClose={handleOnClose}>
-      <div className='absolute left-2/4 top-2/4 flex h-[512px] w-[1024px] -translate-x-2/4 -translate-y-2/4 items-center justify-between bg-slate-900 p-4 shadow-md'>
-        <CombatCard hero={combatValue[0]} />
+      <div className='absolute left-2/4 top-2/4 flex h-[512px] w-[1024px] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 bg-slate-900 p-4 shadow-md'>
+        <HeroCard hero={combatValue[0]} className='h-fit w-80' />
+
         <CombatStats combatants={combatValue} />
-        <CombatCard hero={combatValue[1]} />
+
+        <HeroCard hero={combatValue[1]} className='h-fit w-80' />
       </div>
     </Modal>
   );

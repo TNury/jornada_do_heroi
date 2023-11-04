@@ -17,11 +17,11 @@ const Home = async () => {
   );
 
   return (
-    <main className='min-h-screen w-full bg-slate-900 py-16'>
+    <main className='min-h-screen w-full bg-black py-16'>
       <Container>
         <Header />
 
-        <HeroList heroList={response} />
+        <HeroList heroList={response.slice(0, 10)} />
 
         <CombatModal />
       </Container>

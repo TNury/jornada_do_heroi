@@ -27,6 +27,7 @@ module.exports = {
     '^@/assets',
     '^@/lib',
     '^@/types',
+    '^@/theme',
     '^@/styles',
     '^[src/]',
     '^[./]',

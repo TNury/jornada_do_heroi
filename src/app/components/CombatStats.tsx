@@ -11,8 +11,16 @@ type CombatStatsProps = {
 };
 
 const comparisonIcons = {
-  higher: () => <AddIcon className='text-green-500' />,
-  lower: () => <RemoveIcon className='text-red-500' />,
+  higher: () => (
+    <span className='flex h-6 items-center justify-center text-3xl text-green-500'>
+      +
+    </span>
+  ),
+  lower: () => (
+    <span className='flex h-6 items-center justify-center text-3xl text-red-500'>
+      -
+    </span>
+  ),
   equal: () => <></>,
 };
 
@@ -58,6 +66,7 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
     <div className='relative flex h-full w-1/2 flex-col items-center justify-center text-white'>
       <div className='absolute top-0 p-4'>
         <Typography variant='h6'>
+          The{' '}
           <span className='text-green-500'>Winner</span> is {getWinner()?.name}
         </Typography>
       </div>
@@ -66,7 +75,7 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
           {getCombatantStats(combatants[0]).map((stat) => (
             <div className='relative flex justify-center'>
               <Typography variant='body1'>{stat.value}</Typography>
-              <div className='absolute left-8 flex items-center justify-center'>
+              <div className='absolute left-8 flex h-6 items-center justify-center'>
                 {comparisonIcons[
                   getComparisonResult(
                     combatants[0],

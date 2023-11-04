@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { StoreProvider } from '@/components/providers/StoreProvider';
+import ThemeProvider from '@/components/providers/theme-provider/ThemeProvider';
 
 import '@/styles/globals.css';
 
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <StoreProvider>
-        <body>{children}</body>
+        <ThemeProvider>
+          <body>{children}</body>
+        </ThemeProvider>
       </StoreProvider>
     </html>
   );

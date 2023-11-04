@@ -15,7 +15,7 @@ import { SuperHero } from '@/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 
-const cardVariants = cva('relative h-full w-full !rounded-none p-2', {
+const cardVariants = cva('relative h-full w-full !rounded-none p-2 border-2 border-black !shadow-comic', {
   variants: {
     variant: {
       default: '!bg-white hover:!bg-white data-[highlight="true"]:!bg-white',
@@ -86,6 +86,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   return (
     <Card
       {...otherAttributes}
+      elevation={10}
       data-highlight={highLight}
       className={cn(
         cardVariants({
@@ -95,7 +96,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
       )}
       onClick={handleOnClick}>
       <div className='relative h-full w-full border-2 border-black'>
-        <div className='relative h-[55vh] w-full sm:h-80'>
+        <div className='relative h-[50vh] w-full sm:h-80'>
           <Image
             src={hero.images.md}
             alt={hero.name}

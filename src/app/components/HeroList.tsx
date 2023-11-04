@@ -32,17 +32,18 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   };
 
   return (
-    <Grid
-      container
-      spacing={{
-        xs: 2,
-        sm: 4,
-      }}>
-      {getFilteredHeroList().map((entry, index) => (
-        <Grid item xs={12} md={3} key={index}>
-          <HeroCard hero={entry} role='button' />
-        </Grid>
-      ))}
-    </Grid>
+    <div className='w-full px-8'>
+      <Grid
+        container
+        spacing={{
+          xs: 4,
+        }}>
+        {getFilteredHeroList().map((entry, index) => (
+          <Grid item xs={12} md={3} key={index}>
+            <HeroCard hero={entry} role='button' />
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 };

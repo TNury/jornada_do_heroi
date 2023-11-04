@@ -14,11 +14,19 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-    // h6: {
-    //   fontSize: '1rem',
-    // },
+    body1: {
+      'text-shadow': '2px 2px 0px black',
+    },
   },
   components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          flexDirection: 'column',
+        },
+      },
+    },
     MuiInputBase: {
       styleOverrides: {
         root: {

@@ -23,7 +23,7 @@ const CombatModal = () => {
 
   return (
     <Modal open onClose={handleOnClose}>
-      <div className='absolute left-2/4 top-2/4 flex h-[512px] w-[1024px] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 bg-slate-900 p-4 shadow-md'>
+      <div className='bg-gradient-blue outline-none absolute left-2/4 top-2/4 flex h-[512px] w-[1024px] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 border-2 border-black p-4'>
         <HeroCard hero={combatValue[0]} className='h-fit w-80' />
 
         <CombatStats combatants={combatValue} />

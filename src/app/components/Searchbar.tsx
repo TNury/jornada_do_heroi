@@ -23,9 +23,10 @@ const SearchBar = () => {
   return (
     <TextField
       id='outlined-basic'
-      placeholder='Search by name or race'
+      placeholder='Procure por nome ou raça...'
       variant='outlined'
       onChange={handleOnChange}
+      className='w-64'
     />
   );
 };

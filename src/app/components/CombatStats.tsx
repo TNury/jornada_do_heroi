@@ -11,16 +11,8 @@ type CombatStatsProps = {
 };
 
 const comparisonIcons = {
-  higher: () => (
-    <span className='flex h-6 items-center justify-center text-3xl text-green-500'>
-      +
-    </span>
-  ),
-  lower: () => (
-    <span className='flex h-6 items-center justify-center text-3xl text-red-500'>
-      -
-    </span>
-  ),
+  higher: () => <span className='text-3xl text-green-500'>+</span>,
+  lower: () => <span className='text-3xl text-red-500'>-</span>,
   equal: () => <></>,
 };
 
@@ -63,19 +55,19 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
   };
 
   return (
-    <div className='relative flex h-full w-1/2 flex-col items-center justify-center text-white'>
+    <div className='text-shadow relative flex h-full w-1/2 flex-col items-center justify-center text-white'>
       <div className='absolute top-0 p-4'>
-        <Typography variant='h6'>
-          The{' '}
-          <span className='text-green-500'>Winner</span> is {getWinner()?.name}
+        <Typography variant='h4' className='text-center'>
+          The <span className='text-green-500'>Winner</span> is...{' '}
+          {getWinner()?.name}!
         </Typography>
       </div>
       <div className='mb-auto mt-auto flex w-full items-center justify-between gap-4 text-center'>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[0]).map((stat) => (
             <div className='relative flex justify-center'>
-              <Typography variant='body1'>{stat.value}</Typography>
-              <div className='absolute left-8 flex h-6 items-center justify-center'>
+              <Typography variant='h6'>{stat.value}</Typography>
+              <div className='absolute left-8 flex items-center justify-center'>
                 {comparisonIcons[
                   getComparisonResult(
                     combatants[0],
@@ -89,15 +81,13 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
         </div>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[0]).map((stat) => (
-            <Typography variant='body1'>
-              {returnTitleCase(stat.title)}
-            </Typography>
+            <Typography variant='h6'>{returnTitleCase(stat.title)}</Typography>
           ))}
         </div>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[1]).map((stat) => (
             <div className='relative flex justify-center'>
-              <Typography variant='body1'>{stat.value}</Typography>
+              <Typography variant='h6'>{stat.value}</Typography>
               <div className='absolute right-8 flex items-center justify-center'>
                 {comparisonIcons[
                   getComparisonResult(

@@ -23,7 +23,7 @@ const Home = async () => {
         <div className='bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 shadow-comic relative flex w-full flex-col gap-8 overflow-clip border-2 border-black !p-0'>
           <Header />
 
-          <HeroList heroList={response} />
+          <HeroList heroList={response.slice(0, 25)} />
 
           <CombatModal />
         </div>

@@ -1,34 +1,52 @@
 'use client';
 
-import { clearCombatants } from '@/redux/slices/combatSlice';
+import {
+  clearCombatants,
+  selectCombatWinner,
+  selectCombatants,
+} from '@/redux/slices/combatSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
 
 import { CombatStats } from '@/components/CombatStats';
 import { HeroCard } from '@/components/HeroCard';
 
-// @TODO - Make this mobile friendly
-
 const CombatModal = () => {
-  const combatValue = useAppSelector((state) => state.combat.value);
+  const combatants = useAppSelector(selectCombatants);
+  const combatWinner = useAppSelector(selectCombatWinner);
 
   const dispatch = useAppDispatch();
 
-  if (combatValue.length < 2) return null;
+  if (combatants.length < 2) return null;
 
   const handleOnClose = () => {
     dispatch(clearCombatants());
   };
 
   return (
-    <Modal open onClose={handleOnClose}>
-      <div className='bg-gradient-blue outline-none absolute left-2/4 top-2/4 flex h-[512px] w-[1024px] -translate-x-2/4 -translate-y-2/4 items-center justify-between gap-4 border-2 border-black p-4'>
-        <HeroCard hero={combatValue[0]} className='h-fit w-80' />
+    <Modal
+      open
+      onClose={handleOnClose}
+      className='flex items-center justify-center !p-4'>
+      <div className='bg-gradient-blue shadow-comic flex w-full flex-col overflow-hidden border-2 border-black outline-none md:w-[1024px]'>
+        <div className='-ml-2 w-fit -skew-x-6 border-b-2 border-r-2 border-black bg-white p-4 pl-6'>
+          <p className='text-center text-2xl text-[#6ecfef]'>
+            And the winner is...{' '}
+            <span className='text-shadow text-green-500'>
+              {combatWinner?.name}!
+            </span>
+          </p>
+        </div>
 
-        <CombatStats combatants={combatValue} />
+        <div className='flex w-full items-center justify-between gap-8 overflow-scroll p-8'>
+          <HeroCard hero={combatants[0]} className='h-96 w-64 min-w-[256px]' />
 
-        <HeroCard hero={combatValue[1]} className='h-fit w-80' />
+          <CombatStats combatants={combatants} />
+
+          <HeroCard hero={combatants[1]} className='h-96 w-64 min-w-[256px]' />
+        </div>
       </div>
     </Modal>
   );

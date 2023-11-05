@@ -1,6 +1,8 @@
 'use client';
 
-import { useAppSelector } from '@/redux/store';
+import { addCombatant } from '@/redux/slices/combatSlice';
+import { selectSearchValue } from '@/redux/slices/searchSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import Grid from '@mui/material/Grid';
 
@@ -13,7 +15,13 @@ type HeroListProps = {
 };
 
 export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
-  const searchValue = useAppSelector((state) => state.search.value);
+  const searchValue = useAppSelector(selectSearchValue);
+
+  const dispatch = useAppDispatch();
+
+  const handleCardClick = (hero: SuperHero) => {
+    dispatch(addCombatant(hero));
+  };
 
   const getFilteredHeroList = (): SuperHero[] => {
     const trimmedSearchValue = searchValue.trim().toLowerCase();
@@ -32,15 +40,20 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   };
 
   return (
-    <div className='w-full px-8'>
+    <div className='w-full px-8 pb-8'>
       <Grid
         container
         spacing={{
           xs: 4,
         }}>
-        {getFilteredHeroList().map((entry, index) => (
+        {getFilteredHeroList().map((hero, index) => (
           <Grid item xs={12} md={3} key={index}>
-            <HeroCard hero={entry} role='button' />
+            <HeroCard
+              hero={hero}
+              role='button'
+              onClick={() => handleCardClick(hero)}
+              className='h-[50vh] md:h-96'
+            />
           </Grid>
         ))}
       </Grid>

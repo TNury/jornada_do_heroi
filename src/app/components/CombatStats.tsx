@@ -1,8 +1,6 @@
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import Typography from '@mui/material/Typography';
 
-import { returnSummedStats, returnTitleCase } from '@/lib/lib';
+import { returnTitleCase } from '@/lib/lib';
 
 import { SuperHero } from '@/types/types';
 
@@ -11,25 +9,12 @@ type CombatStatsProps = {
 };
 
 const comparisonIcons = {
-  higher: () => <span className='text-3xl text-green-500'>+</span>,
-  lower: () => <span className='text-3xl text-red-500'>-</span>,
-  equal: () => <></>,
+  higher: () => <span className='text-5xl text-green-500'>+</span>,
+  lower: () => <span className='text-5xl text-red-500'>-</span>,
+  equal: () => null,
 };
 
 export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
-  const getWinner = (): SuperHero | null => {
-    const combatantOne = returnSummedStats(combatants[0]);
-    const combatantTwo = returnSummedStats(combatants[1]);
-
-    if (combatantOne > combatantTwo) {
-      return combatants[0];
-    } else if (combatantOne < combatantTwo) {
-      return combatants[1];
-    } else {
-      return null;
-    }
-  };
-
   const getCombatantStats = (combatant: SuperHero) => {
     return Object.entries(combatant.powerstats).map(([title, value]) => ({
       title: title as string,
@@ -37,46 +22,47 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
     }));
   };
 
-  const getComparisonResult = (
+  const getComparisonSymbol = (
     combatantOne: SuperHero,
     combatantTwo: SuperHero,
     stat: string
   ) => {
+    if (combatantOne.powerstats[stat] === combatantTwo.powerstats[stat]) {
+      return null;
+    }
+
     // @ts-ignore
     if (combatantOne.powerstats[stat] > combatantTwo.powerstats[stat]) {
-      return 'higher';
-    }
-    // @ts-ignore
-    else if (combatantOne.powerstats[stat] < combatantTwo.powerstats[stat]) {
-      return 'lower';
+      return (
+        <span className='flex h-6 w-6 items-center justify-center text-5xl text-green-500'>
+          +
+        </span>
+      );
     } else {
-      return 'equal';
+      return (
+        <span className='flex h-6 w-6 items-center justify-center text-5xl text-red-500'>
+          -
+        </span>
+      );
     }
   };
 
   return (
-    <div className='text-shadow relative flex h-full w-1/2 flex-col items-center justify-center text-white'>
-      <div className='absolute top-0 p-4'>
-        <Typography variant='h4' className='text-center'>
-          The <span className='text-green-500'>Winner</span> is...{' '}
-          {getWinner()?.name}!
-        </Typography>
-      </div>
+    <div className='text-shadow relative flex h-full w-full flex-col items-center justify-center text-white'>
       <div className='mb-auto mt-auto flex w-full items-center justify-between gap-4 text-center'>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[0]).map((stat) => (
-            <div className='relative flex justify-center'>
-              <Typography variant='h6'>{stat.value}</Typography>
-              <div className='absolute left-8 flex items-center justify-center'>
-                {comparisonIcons[
-                  getComparisonResult(
-                    combatants[0],
-                    combatants[1],
-                    `${stat.title}`
-                  )
-                ]()}
-              </div>
-            </div>
+            <Typography
+              variant='h6'
+              component='div'
+              className='flex items-center gap-2'>
+              <span className='w-8 text-center'>{stat.value}</span>
+              {getComparisonSymbol(
+                combatants[0],
+                combatants[1],
+                `${stat.title}`
+              )}
+            </Typography>
           ))}
         </div>
         <div className='flex flex-col'>
@@ -86,18 +72,17 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
         </div>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[1]).map((stat) => (
-            <div className='relative flex justify-center'>
-              <Typography variant='h6'>{stat.value}</Typography>
-              <div className='absolute right-8 flex items-center justify-center'>
-                {comparisonIcons[
-                  getComparisonResult(
-                    combatants[1],
-                    combatants[0],
-                    `${stat.title}`
-                  )
-                ]()}
-              </div>
-            </div>
+            <Typography
+              variant='h6'
+              component='div'
+              className='flex flex-row-reverse items-center gap-2'>
+              <span className='w-8 text-center'>{stat.value}</span>
+              {getComparisonSymbol(
+                combatants[1],
+                combatants[0],
+                `${stat.title}`
+              )}
+            </Typography>
           ))}
         </div>
       </div>

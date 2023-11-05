@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 
-import { addCombatant } from '@/redux/slices/combatSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { useAppSelector } from '@/redux/store';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,28 +14,31 @@ import { SuperHero } from '@/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 
-const cardVariants = cva('relative h-full w-full !rounded-none p-2 border-2 border-black !shadow-comic', {
-  variants: {
-    variant: {
-      default: '!bg-white hover:!bg-white data-[highlight="true"]:!bg-white',
-      intelligence:
-        '!bg-blue-800 hover:!bg-blue-500 data-[highlight="true"]:!bg-blue-500',
-      strength:
-        '!bg-red-800 hover:!bg-red-500 data-[highlight="true"]:!bg-red-500',
-      speed:
-        '!bg-orange-800 hover:!bg-orange-500 data-[highlight="true"]:!bg-orange-500',
-      durability:
-        '!bg-green-800 hover:!bg-green-500 data-[highlight="true"]:!bg-green-500',
-      power:
-        '!bg-purple-800 hover:!bg-purple-500 data-[highlight="true"]:!bg-purple-500',
-      combat:
-        '!bg-pink-800 hover:!bg-pink-500 data-[highlight="true"]:!bg-pink-500',
+const cardVariants = cva(
+  'relative h-full w-full !rounded-none p-2 border-2 border-black !shadow-comic',
+  {
+    variants: {
+      variant: {
+        default: '!bg-white hover:!bg-white data-[highlight="true"]:!bg-white',
+        intelligence:
+          '!bg-blue-700 hover:!bg-blue-400 data-[highlight="true"]:!bg-blue-400',
+        strength:
+          '!bg-red-700 hover:!bg-red-400 data-[highlight="true"]:!bg-red-400',
+        speed:
+          '!bg-orange-700 hover:!bg-orange-400 data-[highlight="true"]:!bg-orange-400',
+        durability:
+          '!bg-green-700 hover:!bg-green-400 data-[highlight="true"]:!bg-green-400',
+        power:
+          '!bg-purple-700 hover:!bg-purple-400 data-[highlight="true"]:!bg-purple-400',
+        combat:
+          '!bg-pink-700 hover:!bg-pink-400 data-[highlight="true"]:!bg-pink-400',
+      },
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-});
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+);
 
 const cardContentVariants = cva(
   'flex items-end justify-between bg-gradient-to-t from-black !px-4 !pb-4 !pt-4 border-t-2 border-black',
@@ -44,12 +46,12 @@ const cardContentVariants = cva(
     variants: {
       variant: {
         default: '',
-        intelligence: 'to-blue-800',
-        strength: 'to-red-800',
-        speed: 'to-orange-800',
-        durability: 'to-green-800',
-        power: 'to-purple-800',
-        combat: 'to-pink-800',
+        intelligence: 'to-blue-700',
+        strength: 'to-red-700',
+        speed: 'to-orange-700',
+        durability: 'to-green-700',
+        power: 'to-purple-700',
+        combat: 'to-pink-700',
       },
     },
     defaultVariants: {
@@ -71,12 +73,6 @@ export const HeroCard: React.FC<HeroCardProps> = ({
     return state.combat.value.includes(hero);
   });
 
-  const dispatch = useAppDispatch();
-
-  const handleOnClick = () => {
-    dispatch(addCombatant(hero));
-  };
-
   const getVariant = (): string => {
     return Object.entries(hero.powerstats).reduce((a, b) =>
       b[1] > a[1] ? b : a
@@ -93,10 +89,9 @@ export const HeroCard: React.FC<HeroCardProps> = ({
           variant: getVariant() as VariantProps<typeof cardVariants>['variant'],
           className,
         })
-      )}
-      onClick={handleOnClick}>
-      <div className='relative h-full w-full border-2 border-black'>
-        <div className='relative h-[50vh] w-full sm:h-80'>
+      )}>
+      <div className='relative flex h-full w-full flex-col border-2 border-black'>
+        <div className='relative h-full w-full'>
           <Image
             src={hero.images.md}
             alt={hero.name}

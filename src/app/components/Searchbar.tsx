@@ -27,6 +27,9 @@ const SearchBar = () => {
       variant='outlined'
       onChange={handleOnChange}
       className='w-64'
+      inputProps={{
+        className: 'md:!text-xl',
+      }}
     />
   );
 };

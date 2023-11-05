@@ -1,6 +1,10 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
+
+import { returnSummedStats } from '@/lib/lib';
 
 import { SuperHero } from '@/types/types';
+
+import { RootState, useAppSelector } from '../store';
 
 type CombatState = {
   value: SuperHero[];
@@ -36,5 +40,25 @@ export const combatSlice = createSlice({
 });
 
 export const { addCombatant, clearCombatants } = combatSlice.actions;
+
+export const selectCombatants = (state: RootState) => state.combat.value;
+
+export const selectCombatWinner = createSelector(
+  (state: RootState) => state.combat.value,
+  (combatants) => {
+    if (combatants.length !== 2) return null;
+
+    const combatantOne = returnSummedStats(combatants[0]);
+    const combatantTwo = returnSummedStats(combatants[1]);
+
+    if (combatantOne > combatantTwo) {
+      return combatants[0];
+    } else if (combatantOne < combatantTwo) {
+      return combatants[1];
+    } else {
+      return null;
+    }
+  }
+);
 
 export default combatSlice.reducer;

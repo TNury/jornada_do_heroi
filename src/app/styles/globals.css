@@ -5,3 +5,7 @@
 .text-shadow {
   text-shadow: 2px 2px 0px black;
 }
+
+.text-shadow-none {
+  text-shadow: none;
+}

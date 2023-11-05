@@ -17,8 +17,8 @@ const Home = async () => {
   );
 
   return (
-    <main className='relative min-h-screen w-full md:py-16'>
-      <Container className='relative gap-8 border-2 border-black !p-0 overflow-clip shadow-comic'>
+    <main className='relative min-h-screen w-full px-8 py-8 md:py-16'>
+      <Container className='shadow-comic relative gap-8 overflow-clip border-2 border-black !p-0'>
         <div className='bg-gradient-yellow absolute inset-0 -z-10' />
 
         <Header />

@@ -39,7 +39,7 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
   };
 
   return (
-    <div className='text-shadow relative flex h-full w-full flex-col items-center justify-center text-white'>
+    <div className='relative flex h-full w-full flex-col items-center justify-center text-white'>
       <div className='mb-auto mt-auto flex w-full items-center justify-between gap-4 text-center'>
         <div className='flex flex-col'>
           {getCombatantStats(combatants[0]).map((stat, index) => (

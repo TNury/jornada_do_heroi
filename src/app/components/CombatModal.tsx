@@ -31,12 +31,12 @@ const CombatModal = () => {
       className='flex items-center justify-center !p-4'>
       <div className='bg-gradient-blue shadow-comic flex w-full flex-col overflow-hidden border-2 border-black outline-none md:w-[1024px]'>
         <div className='-ml-2 w-fit -skew-x-6 border-b-2 border-r-2 border-black bg-white p-4 pl-6'>
-          <p className='text-center text-2xl text-[#6ecfef] md:text-3xl'>
+          <h2 className='text-center text-2xl text-[#6ecfef] md:text-4xl'>
             And the winner is...{' '}
-            <span className='text-shadow text-green-500'>
+            <span className='text-green-500'>
               {combatWinner?.name}!
             </span>
-          </p>
+          </h2>
         </div>
 
         <div className='flex w-full items-center justify-between gap-8 overflow-scroll p-8'>

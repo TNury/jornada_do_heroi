@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.text-shadow {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   text-shadow: 2px 2px 0px black;
-}
-
-.text-shadow-none {
-  text-shadow: none;
 }

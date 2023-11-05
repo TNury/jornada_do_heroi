@@ -23,3 +23,9 @@ export function returnSummedStats(hero: SuperHero): number {
 
   return summedStats;
 }
+
+export function getHighestStat(hero: SuperHero): string {
+  return Object.entries(hero.powerstats).reduce((a, b) =>
+    b[1] > a[1] ? b : a
+  )[0];
+}

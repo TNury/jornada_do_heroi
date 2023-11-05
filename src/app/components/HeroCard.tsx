@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 
+import { selectCombatants } from '@/redux/slices/combatSlice';
 import { useAppSelector } from '@/redux/store';
 
-import { cn, returnSummedStats } from '@/lib/lib';
+import { cn, getHighestStat, returnSummedStats } from '@/lib/lib';
 
 import { SuperHero } from '@/types/types';
 
@@ -66,15 +67,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   className,
   ...otherAttributes
 }) => {
-  const highLight = useAppSelector((state) => {
-    return state.combat.value.includes(hero);
-  });
-
-  const getVariant = (): string => {
-    return Object.entries(hero.powerstats).reduce((a, b) =>
-      b[1] > a[1] ? b : a
-    )[0];
-  };
+  const highLight = useAppSelector(selectCombatants).includes(hero);
 
   return (
     <div
@@ -82,7 +75,9 @@ export const HeroCard: React.FC<HeroCardProps> = ({
       data-highlight={highLight}
       className={cn(
         cardVariants({
-          variant: getVariant() as VariantProps<typeof cardVariants>['variant'],
+          variant: getHighestStat(hero) as VariantProps<
+            typeof cardVariants
+          >['variant'],
           className,
         })
       )}>
@@ -99,7 +94,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
         <div
           className={cn(
             cardContentVariants({
-              variant: getVariant() as VariantProps<
+              variant: getHighestStat(hero) as VariantProps<
                 typeof cardContentVariants
               >['variant'],
             })
@@ -110,7 +105,9 @@ export const HeroCard: React.FC<HeroCardProps> = ({
               {hero.appearance.race ? hero.appearance.race : 'Unknown'}
             </p>
           </div>
-          <p className='h-9 text-4xl sm:text-3xl md:text-5xl text-white'>{returnSummedStats(hero)}</p>
+          <p className='h-9 text-4xl text-white sm:text-3xl md:text-4xl'>
+            {returnSummedStats(hero)}
+          </p>
         </div>
       </div>
     </div>

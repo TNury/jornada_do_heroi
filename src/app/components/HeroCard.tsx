@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 
 import { selectCombatants } from '@jdh/redux/slices/combatSlice';
@@ -61,7 +59,6 @@ interface HeroCardProps extends React.HTMLAttributes<HTMLDivElement> {
   hero: SuperHero;
 }
 
-// @TODO: Fix image bug when text is two lines
 export const HeroCard: React.FC<HeroCardProps> = ({
   hero,
   className,

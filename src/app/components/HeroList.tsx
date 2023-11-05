@@ -47,7 +47,7 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
           xs: 4,
         }}>
         {getFilteredHeroList().map((hero, index) => (
-          <Grid item xs={12} md={3} key={index}>
+          <Grid item xs={12} sm={4} md={3} key={index}>
             <HeroCard
               hero={hero}
               role='button'

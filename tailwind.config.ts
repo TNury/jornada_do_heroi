@@ -8,16 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: '640px',
+
+        md: '1024px',
+
+        lg: '1280px',
+
+        xl: '1536px',
+      },
       boxShadow: {
         comic: '4px 4px 0 #000',
       },
-      backgroundImage: ({ theme }) => ({
-        'gradient-yellow': `radial-gradient(circle, ${theme(
-          'colors.yellow.400'
-        )}, ${theme('colors.orange.400')})`,
-
+      backgroundImage: {
         'gradient-blue': `radial-gradient(circle, lightblue, deepskyblue)`,
-      }),
+      },
     },
   },
   plugins: [],

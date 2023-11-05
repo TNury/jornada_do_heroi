@@ -110,7 +110,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
               {hero.appearance.race ? hero.appearance.race : 'Unknown'}
             </p>
           </div>
-          <p className='h-9 text-4xl text-white'>{returnSummedStats(hero)}</p>
+          <p className='h-9 text-4xl sm:text-3xl md:text-5xl text-white'>{returnSummedStats(hero)}</p>
         </div>
       </div>
     </div>

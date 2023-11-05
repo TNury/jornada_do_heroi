@@ -16,14 +16,17 @@ const Home = async () => {
 
   return (
     <main className='relative flex min-h-screen w-full justify-center px-8 py-8 md:py-16'>
-      <div className='shadow-comic relative flex max-w-screen-xl flex-col gap-8 overflow-clip border-2 border-black !p-0'>
-        <div className='bg-gradient-yellow absolute inset-0 -z-10' />
+      <div className='flex w-full max-w-screen-lg flex-col gap-4'>
+        <h1 className='mr-auto text-4xl text-orange-400 md:text-6xl'>
+          A Jornada do Herói
+        </h1>
+        <div className='bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 shadow-comic relative flex w-full flex-col gap-8 overflow-clip border-2 border-black !p-0'>
+          <Header />
 
-        <Header />
+          <HeroList heroList={response.slice(0, 25)} />
 
-        <HeroList heroList={response.slice(0, 25)} />
-
-        <CombatModal />
+          <CombatModal />
+        </div>
       </div>
     </main>
   );

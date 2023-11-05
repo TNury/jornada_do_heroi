@@ -1,6 +1,6 @@
-import { returnTitleCase } from '@/lib/lib';
+import { returnTitleCase } from '@jdh/lib/lib';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 type CombatStatsProps = {
   combatants: SuperHero[];

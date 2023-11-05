@@ -1,4 +1,4 @@
-import SearchBar from '@/components/Searchbar';
+import SearchBar from '@jdh/components/Searchbar';
 
 const Header = () => {
   return (

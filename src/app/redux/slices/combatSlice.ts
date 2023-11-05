@@ -1,8 +1,8 @@
 import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 
-import { returnSummedStats } from '@/lib/lib';
+import { returnSummedStats } from '@jdh/lib/lib';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 import { RootState, useAppSelector } from '../store';
 

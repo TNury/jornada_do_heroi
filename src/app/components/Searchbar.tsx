@@ -1,7 +1,7 @@
 'use client';
 
-import { update } from '@/redux/slices/searchSlice';
-import { useAppDispatch } from '@/redux/store';
+import { update } from '@jdh/redux/slices/searchSlice';
+import { useAppDispatch } from '@jdh/redux/store';
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();

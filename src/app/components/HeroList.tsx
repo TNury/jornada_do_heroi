@@ -1,14 +1,14 @@
 'use client';
 
-import { addCombatant } from '@/redux/slices/combatSlice';
-import { selectSearchValue } from '@/redux/slices/searchSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { addCombatant } from '@jdh/redux/slices/combatSlice';
+import { selectSearchValue } from '@jdh/redux/slices/searchSlice';
+import { useAppDispatch, useAppSelector } from '@jdh/redux/store';
 
 import Grid from '@mui/material/Grid';
 
-import { HeroCard } from '@/components/HeroCard';
+import { HeroCard } from '@jdh/components/HeroCard';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 type HeroListProps = {
   heroList: SuperHero[];

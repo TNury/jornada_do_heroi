@@ -1,8 +1,8 @@
 import { twMerge } from 'tailwind-merge';
 
-import { SuperHero } from '@/types/types';
-
 import { type ClassValue, clsx } from 'clsx';
+
+import { SuperHero } from '@jdh/types/types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

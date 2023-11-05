@@ -3,9 +3,9 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 
-import NextAppDirEmotionCacheProvider from '@/components/providers/theme-provider/EmotionCache';
+import NextAppDirEmotionCacheProvider from '@jdh/components/providers/theme-provider/EmotionCache';
 
-import theme from '@/theme/theme';
+import theme from '@jdh/theme/theme';
 
 export default function ThemeProvider({
   children,

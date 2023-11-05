@@ -2,7 +2,7 @@
 
 import { Provider } from 'react-redux';
 
-import { store } from '@/redux/store';
+import { store } from '@jdh/redux/store';
 
 type StoreProviderProps = {
   children: React.ReactNode;

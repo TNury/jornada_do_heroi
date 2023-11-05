@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { getHighestStat } from '@/lib/lib';
+import { getHighestStat } from '@jdh/lib/lib';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 

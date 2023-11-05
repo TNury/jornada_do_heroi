@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 
-import { selectCombatants } from '@/redux/slices/combatSlice';
-import { useAppSelector } from '@/redux/store';
+import { selectCombatants } from '@jdh/redux/slices/combatSlice';
+import { useAppSelector } from '@jdh/redux/store';
 
-import { cn, getHighestStat, returnSummedStats } from '@/lib/lib';
+import { cn, getHighestStat, returnSummedStats } from '@jdh/lib/lib';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 

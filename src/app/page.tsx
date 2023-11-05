@@ -1,10 +1,10 @@
-import callAPI from '@/services/api';
+import callAPI from '@jdh/services/api';
 
-import CombatModal from '@/components/CombatModal';
-import Header from '@/components/Header';
-import { HeroList } from '@/components/HeroList';
+import CombatModal from '@jdh/components/CombatModal';
+import Header from '@jdh/components/Header';
+import { HeroList } from '@jdh/components/HeroList';
 
-import { SuperHero } from '@/types/types';
+import { SuperHero } from '@jdh/types/types';
 
 const Home = async () => {
   const response: SuperHero[] = await callAPI(

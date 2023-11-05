@@ -23,34 +23,25 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/redux/*": [
+      "@jdh/redux/*": [
         "src/app/redux/*"
       ],
-      "@/components/*": [
+      "@jdh/components/*": [
         "src/app/components/*"
       ],
-      "@/lib/*": [
+      "@jdh/lib/*": [
         "src/app/lib/*"
       ],
-      "@/services/*": [
+      "@jdh/services/*": [
         "src/services/*"
       ],
-      "@/types/*": [
+      "@jdh/types/*": [
         "src/app/types/*"
       ],
-      "@/hooks/*": [
-        "src/app/hooks/*"
-      ],
-      "@/icons/*": [
-        "src/app/components/ui/generic/icons/*"
-      ],
-      "@/assets/*": [
-        "src/assets/*"
-      ],
-      "@/theme/*": [
+      "@jdh/theme/*": [
         "src/app/theme/*"
       ],
-      "@/styles/*": [
+      "@jdh/styles/*": [
         "src/app/styles/*"
       ]
     },

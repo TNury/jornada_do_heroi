@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Bangers } from 'next/font/google';
 
-import { StoreProvider } from '@/components/providers/StoreProvider';
-import ThemeProvider from '@/components/providers/theme-provider/ThemeProvider';
+import { StoreProvider } from '@jdh/components/providers/StoreProvider';
+import ThemeProvider from '@jdh/components/providers/theme-provider/ThemeProvider';
 
-import '@/styles/globals.css';
+import '@jdh/styles/globals.css';
 
 const bangers = Bangers({
   weight: ['400'],

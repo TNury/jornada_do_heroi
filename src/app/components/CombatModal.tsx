@@ -4,14 +4,14 @@ import {
   clearCombatants,
   selectCombatWinner,
   selectCombatants,
-} from '@/redux/slices/combatSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/store';
+} from '@jdh/redux/slices/combatSlice';
+import { useAppDispatch, useAppSelector } from '@jdh/redux/store';
 
 import Modal from '@mui/material/Modal';
 
-import { CombatStats } from '@/components/CombatStats';
-import { CombatWinnerLabel } from '@/components/CombatWinnerLabel';
-import { HeroCard } from '@/components/HeroCard';
+import { CombatStats } from '@jdh/components/CombatStats';
+import { CombatWinnerLabel } from '@jdh/components/CombatWinnerLabel';
+import { HeroCard } from '@jdh/components/HeroCard';
 
 const CombatModal = () => {
   const combatants = useAppSelector(selectCombatants);
@@ -30,7 +30,7 @@ const CombatModal = () => {
       open
       onClose={handleOnClose}
       className='flex items-center justify-center !p-4'>
-      <div className='bg-gradient-blue shadow-comic flex w-full flex-col overflow-hidden border-2 border-black outline-none md:w-[1024px]'>
+      <div className='flex w-full flex-col overflow-hidden border-2 border-black bg-gradient-blue shadow-comic outline-none md:w-[1024px]'>
         <CombatWinnerLabel combatWinner={combatWinner} />
 
         <div className='flex w-full items-center justify-between gap-8 overflow-scroll p-8'>

@@ -33,7 +33,7 @@ const CombatModal = () => {
       <div className='flex w-full flex-col overflow-hidden border-2 border-black bg-gradient-blue shadow-comic outline-none md:w-[1024px]'>
         <CombatWinnerLabel combatWinner={combatWinner} />
 
-        <div className='flex w-full items-center justify-between gap-8 overflow-scroll p-8'>
+        <div className='flex w-full items-center justify-between gap-8 overflow-auto p-8'>
           <HeroCard
             data-isLoser={combatants[0].id !== combatWinner.id}
             hero={combatants[0]}

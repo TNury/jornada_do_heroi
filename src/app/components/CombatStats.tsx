@@ -51,8 +51,9 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
     <div className='text-shadow relative flex h-full w-full flex-col items-center justify-center text-white'>
       <div className='mb-auto mt-auto flex w-full items-center justify-between gap-4 text-center'>
         <div className='flex flex-col'>
-          {getCombatantStats(combatants[0]).map((stat) => (
+          {getCombatantStats(combatants[0]).map((stat, index) => (
             <Typography
+              key={index}
               variant='h6'
               component='div'
               className='flex items-center gap-2'>
@@ -66,13 +67,16 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
           ))}
         </div>
         <div className='flex flex-col'>
-          {getCombatantStats(combatants[0]).map((stat) => (
-            <Typography variant='h6'>{returnTitleCase(stat.title)}</Typography>
+          {getCombatantStats(combatants[0]).map((stat, index) => (
+            <Typography key={index} variant='h6'>
+              {returnTitleCase(stat.title)}
+            </Typography>
           ))}
         </div>
         <div className='flex flex-col'>
-          {getCombatantStats(combatants[1]).map((stat) => (
+          {getCombatantStats(combatants[1]).map((stat, index) => (
             <Typography
+              key={index}
               variant='h6'
               component='div'
               className='flex flex-row-reverse items-center gap-2'>

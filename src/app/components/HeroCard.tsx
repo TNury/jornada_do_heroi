@@ -4,10 +4,6 @@ import Image from 'next/image';
 
 import { useAppSelector } from '@/redux/store';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-
 import { cn, returnSummedStats } from '@/lib/lib';
 
 import { SuperHero } from '@/types/types';
@@ -15,23 +11,23 @@ import { SuperHero } from '@/types/types';
 import { VariantProps, cva } from 'class-variance-authority';
 
 const cardVariants = cva(
-  'relative h-full w-full !rounded-none p-2 border-2 border-black !shadow-comic',
+  'border-2 border-black shadow-comic relative h-full w-full p-2',
   {
     variants: {
       variant: {
-        default: '!bg-white hover:!bg-white data-[highlight="true"]:!bg-white',
+        default: 'bg-white hover:bg-white data-[highlight="true"]:bg-white',
         intelligence:
-          '!bg-blue-700 hover:!bg-blue-400 data-[highlight="true"]:!bg-blue-400',
+          'bg-blue-700 hover:bg-blue-400 data-[highlight="true"]:bg-blue-400',
         strength:
-          '!bg-red-700 hover:!bg-red-400 data-[highlight="true"]:!bg-red-400',
+          'bg-red-700 hover:bg-red-400 data-[highlight="true"]:bg-red-400',
         speed:
-          '!bg-orange-700 hover:!bg-orange-400 data-[highlight="true"]:!bg-orange-400',
+          'bg-orange-700 hover:bg-orange-400 data-[highlight="true"]:bg-orange-400',
         durability:
-          '!bg-green-700 hover:!bg-green-400 data-[highlight="true"]:!bg-green-400',
+          'bg-green-700 hover:bg-green-400 data-[highlight="true"]:bg-green-400',
         power:
-          '!bg-purple-700 hover:!bg-purple-400 data-[highlight="true"]:!bg-purple-400',
+          'bg-purple-700 hover:bg-purple-400 data-[highlight="true"]:bg-purple-400',
         combat:
-          '!bg-pink-700 hover:!bg-pink-400 data-[highlight="true"]:!bg-pink-400',
+          'bg-pink-700 hover:bg-pink-400 data-[highlight="true"]:bg-pink-400',
       },
     },
     defaultVariants: {
@@ -64,6 +60,7 @@ interface HeroCardProps extends React.HTMLAttributes<HTMLDivElement> {
   hero: SuperHero;
 }
 
+// @TODO: Fix image bug when text is two lines
 export const HeroCard: React.FC<HeroCardProps> = ({
   hero,
   className,
@@ -80,9 +77,8 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   };
 
   return (
-    <Card
+    <div
       {...otherAttributes}
-      elevation={10}
       data-highlight={highLight}
       className={cn(
         cardVariants({
@@ -100,7 +96,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({
             sizes='256px'
           />
         </div>
-        <CardContent
+        <div
           className={cn(
             cardContentVariants({
               variant: getVariant() as VariantProps<
@@ -109,18 +105,14 @@ export const HeroCard: React.FC<HeroCardProps> = ({
             })
           )}>
           <div className='flex flex-col'>
-            <Typography variant='h6' className='text-white'>
-              {hero.name}
-            </Typography>
-            <Typography variant='body1' className='text-white'>
+            <p className='text-xl text-white'>{hero.name}</p>
+            <p className='text-base text-white'>
               {hero.appearance.race ? hero.appearance.race : 'Unknown'}
-            </Typography>
+            </p>
           </div>
-          <Typography variant='h4' className='h-9 text-white'>
-            {returnSummedStats(hero)}
-          </Typography>
-        </CardContent>
+          <p className='h-9 text-4xl text-white'>{returnSummedStats(hero)}</p>
+        </div>
       </div>
-    </Card>
+    </div>
   );
 };

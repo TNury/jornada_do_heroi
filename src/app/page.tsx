@@ -1,5 +1,3 @@
-import Container from '@mui/material/Container';
-
 import callAPI from '@/services/api';
 
 import CombatModal from '@/components/CombatModal';
@@ -17,8 +15,8 @@ const Home = async () => {
   );
 
   return (
-    <main className='relative min-h-screen w-full px-8 py-8 md:py-16'>
-      <Container className='shadow-comic relative gap-8 overflow-clip border-2 border-black !p-0'>
+    <main className='relative flex min-h-screen w-full justify-center px-8 py-8 md:py-16'>
+      <div className='shadow-comic relative flex max-w-screen-xl flex-col gap-8 overflow-clip border-2 border-black !p-0'>
         <div className='bg-gradient-yellow absolute inset-0 -z-10' />
 
         <Header />
@@ -26,7 +24,7 @@ const Home = async () => {
         <HeroList heroList={response.slice(0, 25)} />
 
         <CombatModal />
-      </Container>
+      </div>
     </main>
   );
 };

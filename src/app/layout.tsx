@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
+import { Bangers } from 'next/font/google';
 
 import { StoreProvider } from '@/components/providers/StoreProvider';
 import ThemeProvider from '@/components/providers/theme-provider/ThemeProvider';
 
 import '@/styles/globals.css';
+
+const bangers = Bangers({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Jornada do Herói',
@@ -19,7 +26,7 @@ export default function RootLayout({
     <html lang='en'>
       <StoreProvider>
         <ThemeProvider>
-          <body>{children}</body>
+          <body className={bangers.className}>{children}</body>
         </ThemeProvider>
       </StoreProvider>
     </html>

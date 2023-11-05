@@ -3,8 +3,6 @@
 import { update } from '@/redux/slices/searchSlice';
 import { useAppDispatch } from '@/redux/store';
 
-import TextField from '@mui/material/TextField';
-
 const SearchBar = () => {
   const dispatch = useAppDispatch();
 
@@ -21,15 +19,10 @@ const SearchBar = () => {
   };
 
   return (
-    <TextField
-      id='outlined-basic'
-      placeholder='Procure por nome ou raça...'
-      variant='outlined'
+    <input
       onChange={handleOnChange}
-      className='w-64'
-      inputProps={{
-        className: 'md:!text-xl',
-      }}
+      className='w-64 border-2 border-black p-4 text-xl placeholder:opacity-60'
+      placeholder='Procure por nome ou raça...'
     />
   );
 };

@@ -8,7 +8,6 @@ import {
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 
 import { CombatStats } from '@/components/CombatStats';
 import { HeroCard } from '@/components/HeroCard';
@@ -32,7 +31,7 @@ const CombatModal = () => {
       className='flex items-center justify-center !p-4'>
       <div className='bg-gradient-blue shadow-comic flex w-full flex-col overflow-hidden border-2 border-black outline-none md:w-[1024px]'>
         <div className='-ml-2 w-fit -skew-x-6 border-b-2 border-r-2 border-black bg-white p-4 pl-6'>
-          <p className='text-center text-2xl md:text-3xl text-[#6ecfef]'>
+          <p className='text-center text-2xl text-[#6ecfef] md:text-3xl'>
             And the winner is...{' '}
             <span className='text-shadow text-green-500'>
               {combatWinner?.name}!

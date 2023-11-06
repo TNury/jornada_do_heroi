@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jornada do Herói - Desafio da Azapfy
 
-## Getting Started
+Esse é o meu resultado do desafio proposto pela Azapfy para testar os conhecimentos em React e
+technologias relacionadas.
 
-First, run the development server:
+## [Demo](https://jornada-do-heroi.stellarwind.com.br/)
+
+--------------
+
+## O Desafio
+
+> Queremos convidá-lo a fazer pate desta jonada de transfomação. Nosso desafio é
+> simples: desenvolver uma aplicação web que abrace a temática de heróis e, ao mesmo tempo,
+> seja a platafoma pefeita para você demonstrar todo o seu talento em desenvolvimento front-
+> end e criatividade.
+
+## O Projeto
+
+O projeto consiste em uma aplicação web que permite a visualização de meta-humano e suas
+características, um sistema de busca por nome/raça e sistema básico de duelo entre os
+personagens. As tecnologias utilizadas foram NextJS 13, TailwindCSS, Material UI, e Redux.
+
+## Os Requisitos
+
+> - Desenvolver a aplicação em ReactJS
+> - Utilizar alguma biblioteca de componentes (UI Mateial-UI, etc)
+> - Implementar algum gerenciamento de estado global (React Context, Redux ou Zustand)
+> - Estilização com um ou mais métodos (TailwindCSS, CSS, CSSModule, CSS-in-JS).
+
+### Extras
+
+> Os itens a seguir não são obrigatórios, mas um bônus.
+>
+> - NextJS
+> - Atomic Design
+
+## Rodando o Projeto
+
+Para rodar o projeto, a versão do NodeJS deve a 18.17 ou superior, e a do npm deve ser 6.0 ou superior. Primeiro instalamos as dependências:
+
+```bash
+npm install
+```
+
+Depois, rodamos o projeto em desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Depois abrimos o navegador no endereço [http://localhost:3000](http://localhost:3000) para ver o resultado.

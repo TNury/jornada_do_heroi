@@ -26,7 +26,7 @@ export const SearchBar = () => {
     <input
       onChange={handleOnChange}
       className='w-full p-4 text-xl outline-none placeholder:opacity-60 md:text-3xl'
-      placeholder='Procure por nome ou raça...'
+      placeholder='Search by name or race...'
     />
   );
 };

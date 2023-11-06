@@ -21,13 +21,12 @@ const Home = async () => {
           <h1 className='text-4xl text-orange-400 md:text-6xl'>
             A hero's journey
           </h1>
-          <p className='text-xl md:text-2xl text-orange-400'>
+          <p className='text-xl text-orange-400 md:text-2xl'>
             Made by{' '}
             <a
               href='https://www.linkedin.com/in/yuri-souza-b26bb3180/'
               className='border-b-2 border-orange-400 hover:opacity-50'
-              target="_blank"
-              >
+              target='_blank'>
               Yuri Souza
             </a>
           </p>
@@ -40,10 +39,6 @@ const Home = async () => {
 
             <CombatModal />
           </div>
-          {/* <p className='absolute -right-[8.5rem] top-28 h-fit rotate-90 text-3xl text-orange-400'>
-            Made by{' '}
-            <span className='underline underline-offset-4'>Yuri Souza</span>
-          </p> */}
         </div>
       </div>
     </main>

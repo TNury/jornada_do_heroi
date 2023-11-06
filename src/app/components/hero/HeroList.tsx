@@ -64,10 +64,9 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
     <InfiniteScroll
       dataLength={getFilteredHeroList().length}
       next={() => {
-        if (entriesLimit >= heroList.length) return;
         setEntriesLimit(entriesLimit + 10);
       }}
-      hasMore={true}
+      hasMore={entriesLimit <= heroList.length}
       loader={null}
       className='w-full px-8 pb-8'>
       <Grid

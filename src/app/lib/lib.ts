@@ -4,8 +4,6 @@ import { type ClassValue, clsx } from 'clsx';
 
 import { SuperHero } from '@jdh/types/types';
 
-// @TODO - Rename "return" to 'get'
-
 /**
  * Makes an asynchronous HTTP request to the specified URL with optional options and payload.
  * @param requestURL - The URL to make the request to.

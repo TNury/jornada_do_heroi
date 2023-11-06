@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { addCombatant } from '@jdh/redux/slices/combatSlice';
 import { selectSearchValue } from '@jdh/redux/slices/searchSlice';
 import { useAppDispatch, useAppSelector } from '@jdh/redux/store';
@@ -10,11 +12,15 @@ import { HeroCard } from '@jdh/components/HeroCard';
 
 import { SuperHero } from '@jdh/types/types';
 
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 type HeroListProps = {
   heroList: SuperHero[];
 };
 
 export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
+  const [limit, setLimit] = useState<number>(25);
+
   const searchValue = useAppSelector(selectSearchValue);
 
   const dispatch = useAppDispatch();
@@ -26,7 +32,7 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   const getFilteredHeroList = (): SuperHero[] => {
     const trimmedSearchValue = searchValue.trim().toLowerCase();
 
-    if (!trimmedSearchValue) return heroList;
+    if (!trimmedSearchValue) return heroList.slice(0, limit);
 
     return heroList.filter(({ name, appearance: { race } }) => {
       const lowerCaseName = name.toLowerCase();
@@ -40,7 +46,15 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   };
 
   return (
-    <div className='w-full px-8 pb-8'>
+    <InfiniteScroll
+      dataLength={getFilteredHeroList().length}
+      next={() => {
+        if (limit >= heroList.length) return;
+        setLimit(limit + 10);
+      }}
+      hasMore={true}
+      loader={null}
+      className='w-full px-8 pb-8'>
       <Grid
         container
         spacing={{
@@ -57,6 +71,6 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </InfiniteScroll>
   );
 };

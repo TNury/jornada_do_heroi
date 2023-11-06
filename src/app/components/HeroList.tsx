@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { addCombatant } from '@jdh/redux/slices/combatSlice';
 import { selectSearchValue } from '@jdh/redux/slices/searchSlice';
@@ -19,9 +19,10 @@ type HeroListProps = {
 };
 
 export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
-  const [limit, setLimit] = useState<number>(25);
+  const [entriesLimit, setEntriesLimit] = useState<number>(25);
 
   const searchValue = useAppSelector(selectSearchValue);
+  const isSearchEnabled = searchValue.length > 0;
 
   const dispatch = useAppDispatch();
 
@@ -32,7 +33,7 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   const getFilteredHeroList = (): SuperHero[] => {
     const trimmedSearchValue = searchValue.trim().toLowerCase();
 
-    if (!trimmedSearchValue) return heroList.slice(0, limit);
+    if (!trimmedSearchValue) return heroList.slice(0, entriesLimit);
 
     return heroList.filter(({ name, appearance: { race } }) => {
       const lowerCaseName = name.toLowerCase();
@@ -45,12 +46,18 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
     });
   };
 
+  useEffect(() => {
+    if (isSearchEnabled && entriesLimit > 25) {
+      setEntriesLimit(25);
+    }
+  }, [isSearchEnabled, entriesLimit]);
+
   return (
     <InfiniteScroll
       dataLength={getFilteredHeroList().length}
       next={() => {
-        if (limit >= heroList.length) return;
-        setLimit(limit + 10);
+        if (entriesLimit >= heroList.length || isSearchEnabled) return;
+        setEntriesLimit(entriesLimit + 10);
       }}
       hasMore={true}
       loader={null}
@@ -66,7 +73,7 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
               hero={hero}
               role='button'
               onClick={() => handleCardClick(hero)}
-              className='h-[50vh] md:h-96'
+              className='h-96'
             />
           </Grid>
         ))}

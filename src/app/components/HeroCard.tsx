@@ -9,6 +9,7 @@ import { SuperHero } from '@jdh/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 
+// The variants for the card's root
 const cardVariants = cva(
   'border-2 border-black shadow-comic relative h-full w-full p-2',
   {
@@ -35,6 +36,7 @@ const cardVariants = cva(
   }
 );
 
+// The variants for the card's content
 const cardContentVariants = cva(
   'flex items-end justify-between bg-gradient-to-t from-black !px-4 !pb-4 !pt-4 border-t-2 border-black',
   {
@@ -59,11 +61,16 @@ interface HeroCardProps extends React.HTMLAttributes<HTMLDivElement> {
   hero: SuperHero;
 }
 
+/**
+ * Renders a card containing a SuperHero's information.
+ * @returns JSX.Element
+ */
 export const HeroCard: React.FC<HeroCardProps> = ({
   hero,
   className,
   ...otherAttributes
 }) => {
+  // Returns true if the hero is in the combatants list
   const highLight = useAppSelector(selectCombatants).includes(hero);
 
   return (

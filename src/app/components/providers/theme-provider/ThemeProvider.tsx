@@ -7,6 +7,11 @@ import NextAppDirEmotionCacheProvider from '@jdh/components/providers/theme-prov
 
 import theme from '@jdh/theme/theme';
 
+/**
+ * Provides the MUI theme to the application.
+ * @param props The component props.
+ * @returns JSX.Element
+ */
 export default function ThemeProvider({
   children,
 }: {

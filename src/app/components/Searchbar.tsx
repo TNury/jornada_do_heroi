@@ -3,7 +3,11 @@
 import { update } from '@jdh/redux/slices/searchSlice';
 import { useAppDispatch } from '@jdh/redux/store';
 
-const SearchBar = () => {
+/**
+ * Renders a simple input with search functionality.
+ * @returns JSX.Element
+ */
+export const SearchBar = () => {
   const dispatch = useAppDispatch();
 
   let timeoutId: NodeJS.Timeout | null = null;
@@ -21,10 +25,8 @@ const SearchBar = () => {
   return (
     <input
       onChange={handleOnChange}
-      className='p-4 text-xl md:text-3xl w-full placeholder:opacity-60 outline-none'
+      className='w-full p-4 text-xl outline-none placeholder:opacity-60 md:text-3xl'
       placeholder='Procure por nome ou raça...'
     />
   );
 };
-
-export default SearchBar;

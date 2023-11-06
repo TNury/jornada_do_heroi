@@ -22,7 +22,13 @@ export type NextAppDirEmotionCacheProviderProps = {
   children: React.ReactNode;
 };
 
-// Adapted from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx
+/**
+ * This is a wrapper around <CacheProvider /> from '@emotion/react' that will
+ * flush the cache on the server and add the styles to the HTML.
+ *
+ * @param props The component props.
+ * @returns JSX.Element
+ */
 export default function NextAppDirEmotionCacheProvider(
   props: NextAppDirEmotionCacheProviderProps
 ) {

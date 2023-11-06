@@ -1,8 +1,8 @@
-import callAPI from '@jdh/services/api';
-
-import CombatModal from '@jdh/components/CombatModal';
+import { CombatModal } from '@jdh/components/CombatModal';
 import Header from '@jdh/components/Header';
 import { HeroList } from '@jdh/components/HeroList';
+
+import { callAPI } from '@jdh/lib/lib';
 
 import { SuperHero } from '@jdh/types/types';
 
@@ -20,7 +20,7 @@ const Home = async () => {
         <h1 className='mr-auto text-4xl text-orange-400 md:text-6xl'>
           A Jornada do Herói
         </h1>
-        <div className='bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 shadow-comic relative flex w-full flex-col gap-8 overflow-clip border-2 border-black !p-0'>
+        <div className='relative flex w-full flex-col gap-8 overflow-clip border-2 border-black bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 !p-0 shadow-comic'>
           <Header />
 
           <HeroList heroList={response} />

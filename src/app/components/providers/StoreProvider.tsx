@@ -8,6 +8,11 @@ type StoreProviderProps = {
   children: React.ReactNode;
 };
 
+/**
+ * Provides the redux store to the application.
+ * @param props The component props.
+ * @returns JSX.Element
+ */
 export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 };

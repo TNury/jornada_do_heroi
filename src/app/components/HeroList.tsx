@@ -18,6 +18,10 @@ type HeroListProps = {
   heroList: SuperHero[];
 };
 
+/**
+ * Renders a list of SuperHeroes with an infinite scroll feature and search functionality.
+ * @param heroList - The list of SuperHeroes to be rendered.
+ */
 export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   const [entriesLimit, setEntriesLimit] = useState<number>(25);
 
@@ -30,11 +34,14 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
     dispatch(addCombatant(hero));
   };
 
+  // Returns a filtered list of heroes based on the search value
   const getFilteredHeroList = (): SuperHero[] => {
     const trimmedSearchValue = searchValue.trim().toLowerCase();
 
+    // If the search value is empty, return entries based on limit
     if (!trimmedSearchValue) return heroList.slice(0, entriesLimit);
 
+    // Filter based on name and race (if the hero has it)
     return heroList.filter(({ name, appearance: { race } }) => {
       const lowerCaseName = name.toLowerCase();
       const lowerCaseRace = race?.toLowerCase() ?? '';
@@ -46,6 +53,7 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
     });
   };
 
+  // This effect is used to reset the entries limit when the search is enabled
   useEffect(() => {
     if (isSearchEnabled && entriesLimit > 25) {
       setEntriesLimit(25);

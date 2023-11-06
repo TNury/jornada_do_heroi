@@ -6,7 +6,12 @@ type CombatStatsProps = {
   combatants: SuperHero[];
 };
 
+/**
+ * Renders a component that shows the comparison between two combatants' powerstats.
+ * @returns JSX.Element
+ */
 export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
+  // Returns an array of objects containing the combatant's powerstat and value
   const getCombatantStats = (combatant: SuperHero) => {
     return Object.entries(combatant.powerstats).map(([title, value]) => ({
       title: title as string,
@@ -14,6 +19,7 @@ export const CombatStats: React.FC<CombatStatsProps> = ({ combatants }) => {
     }));
   };
 
+  // Returns a positive/negative symbol based on the combatant's powerstat
   const getComparisonSymbol = (
     combatantOne: SuperHero,
     combatantTwo: SuperHero,

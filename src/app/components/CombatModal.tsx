@@ -13,12 +13,18 @@ import { CombatStats } from '@jdh/components/CombatStats';
 import { CombatWinnerLabel } from '@jdh/components/CombatWinnerLabel';
 import { HeroCard } from '@jdh/components/HeroCard';
 
-const CombatModal = () => {
+/**
+ * Renders a modal displaying the combat details between two heroes.
+ * @returns JSX.Element | null
+ */
+export const CombatModal = () => {
   const combatants = useAppSelector(selectCombatants);
+
   const combatWinner = useAppSelector(selectCombatWinner);
 
   const dispatch = useAppDispatch();
 
+  // If there are less than two combatants, return null
   if (combatants.length < 2) return null;
 
   const handleOnClose = () => {
@@ -52,5 +58,3 @@ const CombatModal = () => {
     </Modal>
   );
 };
-
-export default CombatModal;

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { RootState } from '../store';
+import { RootState } from '@jdh/redux/store';
 
 type SearchState = {
   value: string;

@@ -6,6 +6,7 @@ import { SuperHero } from '@jdh/types/types';
 
 import { VariantProps, cva } from 'class-variance-authority';
 
+// The color variants for the winner name text
 const winnerLabelVariants = cva('', {
   variants: {
     variant: {
@@ -27,6 +28,10 @@ type CombatWinnerLabelProps = {
   combatWinner: SuperHero;
 };
 
+/**
+ * Renders a header that displays the winner of the combat.
+ * @returns JSX.Element
+ */
 export const CombatWinnerLabel: React.FC<CombatWinnerLabelProps> = ({
   combatWinner,
 }) => {

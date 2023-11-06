@@ -9,9 +9,9 @@ import { useAppDispatch, useAppSelector } from '@jdh/redux/store';
 
 import Modal from '@mui/material/Modal';
 
-import { CombatStats } from '@jdh/components/CombatStats';
-import { CombatWinnerLabel } from '@jdh/components/CombatWinnerLabel';
-import { HeroCard } from '@jdh/components/HeroCard';
+import { CombatStats } from '@jdh/components/combat/CombatStats';
+import { CombatWinnerLabel } from '@jdh/components/combat/CombatWinnerLabel';
+import { HeroCard } from '@jdh/components/hero/HeroCard';
 
 /**
  * Renders a modal displaying the combat details between two heroes.

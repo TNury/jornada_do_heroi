@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '@jdh/redux/store';
 
 import Grid from '@mui/material/Grid';
 
-import { HeroCard } from '@jdh/components/HeroCard';
+import { HeroCard } from '@jdh/components/hero/HeroCard';
 
 import { SuperHero } from '@jdh/types/types';
 

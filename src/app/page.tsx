@@ -1,6 +1,6 @@
-import { CombatModal } from '@jdh/components/CombatModal';
-import Header from '@jdh/components/Header';
-import { HeroList } from '@jdh/components/HeroList';
+import { CombatModal } from '@jdh/components/combat/CombatModal';
+import { Header } from '@jdh/components/common/Header';
+import { HeroList } from '@jdh/components/hero/HeroList';
 
 import { callAPI } from '@jdh/lib/lib';
 

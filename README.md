@@ -5,8 +5,6 @@ technologias relacionadas.
 
 ## [Demo](https://jornada-do-heroi.stellarwind.com.br/)
 
---------------
-
 ## O Desafio
 
 > Queremos convidá-lo a fazer pate desta jonada de transfomação. Nosso desafio é

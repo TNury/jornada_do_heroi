@@ -26,7 +26,6 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
   const [entriesLimit, setEntriesLimit] = useState<number>(25);
 
   const searchValue = useAppSelector(selectSearchValue);
-  const isSearchEnabled = searchValue.length > 0;
 
   const dispatch = useAppDispatch();
 
@@ -42,29 +41,30 @@ export const HeroList: React.FC<HeroListProps> = ({ heroList }) => {
     if (!trimmedSearchValue) return heroList.slice(0, entriesLimit);
 
     // Filter based on name and race (if the hero has it)
-    return heroList.filter(({ name, appearance: { race } }) => {
-      const lowerCaseName = name.toLowerCase();
-      const lowerCaseRace = race?.toLowerCase() ?? '';
+    return heroList
+      .filter(({ name, appearance: { race } }) => {
+        const lowerCaseName = name.toLowerCase();
+        const lowerCaseRace = race?.toLowerCase() ?? '';
 
-      return (
-        lowerCaseName.includes(trimmedSearchValue) ||
-        lowerCaseRace.includes(trimmedSearchValue)
-      );
-    });
+        return (
+          lowerCaseName.includes(trimmedSearchValue) ||
+          lowerCaseRace.includes(trimmedSearchValue)
+        );
+      })
+      .slice(0, entriesLimit);
   };
 
-  // This effect is used to reset the entries limit when the search is enabled
   useEffect(() => {
-    if (isSearchEnabled && entriesLimit > 25) {
+    return () => {
       setEntriesLimit(25);
-    }
-  }, [isSearchEnabled, entriesLimit]);
+    };
+  }, [searchValue]);
 
   return (
     <InfiniteScroll
       dataLength={getFilteredHeroList().length}
       next={() => {
-        if (entriesLimit >= heroList.length || isSearchEnabled) return;
+        if (entriesLimit >= heroList.length) return;
         setEntriesLimit(entriesLimit + 10);
       }}
       hasMore={true}

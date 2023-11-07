@@ -14,14 +14,14 @@ technologias relacionadas.
 
 ## O Projeto
 
-O projeto consiste em uma aplicação web que permite a visualização de meta-humano e suas
+O projeto consiste em uma aplicação web que permite a visualização de meta-humanos e suas
 características, um sistema de busca por nome/raça e sistema básico de duelo entre os
 personagens. As tecnologias utilizadas foram NextJS 13, TailwindCSS, Material UI, e Redux.
 
 ## Os Requisitos
 
 > - Desenvolver a aplicação em ReactJS
-> - Utilizar alguma biblioteca de componentes (UI Mateial-UI, etc)
+> - Utilizar alguma biblioteca de componentes (Material-UI, etc)
 > - Implementar algum gerenciamento de estado global (React Context, Redux ou Zustand)
 > - Estilização com um ou mais métodos (TailwindCSS, CSS, CSSModule, CSS-in-JS).
 
